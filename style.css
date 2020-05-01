@@ -1,0 +1,472 @@
+/*color variables*/
+:root {
+    --primary: #22abfa;
+}
+
+/*layout*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #efefef;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container-card {
+    padding: 40px;
+}
+
+.card-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 860px;
+}
+
+.shoe-background {
+    position: relative;
+    width: 50%;
+    height: 475px;
+    box-shadow: -15px 0 35px rgba(0, 0, 0, .1),
+    0 -15px 35px rgba(0, 0, 0, .1),
+    0 15px 35px rgba(0, 0, 0, .1);
+}
+
+.gradients {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+}
+
+.gradient {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: -2;
+}
+
+.first {
+    z-index: 0;
+    animation: 1s width ease;
+}
+
+@keyframes width {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.second {
+    z-index: -1;
+}
+
+.gradient[data-color="blue"] {
+    background-image: linear-gradient(45deg, #0136af, #22abfa);
+}
+
+.gradient[data-color="red"] {
+    background-image: linear-gradient(45deg, #d62926, #ee625f);
+}
+
+.gradient[data-color="green"] {
+    background-image: linear-gradient(45deg, #11998e, #1ce669);
+}
+
+.gradient[data-color="orange"] {
+    background-image: linear-gradient(45deg, #fc4a1a, #f7b733);
+}
+
+.gradient[data-color="black"] {
+    background-image: linear-gradient(45deg, #111, #666);
+}
+
+.card-wrap .logo {
+    position: absolute;
+    width: 100px;
+    left: 20px;
+    top: 20px;
+}
+
+.card-wrap .share {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background-color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.3rem;
+    text-decoration: none;
+    color: var(--primary);
+    transition: .5s;
+}
+
+.card-wrap .share i {
+    line-height: 50px;
+}
+
+.card-wrap .share:hover {
+    transform: scale(1.1);
+}
+
+.card-wrap .title {
+    position: absolute;
+    top: 85px;
+    left: 15px;
+    font-size: 10rem;
+    text-transform: uppercase;
+    line-height: 0.9;
+    color: #fff;
+    opacity: .1;
+}
+
+.shoe {
+    position: absolute;
+    width: 140%;
+    opacity: 0;
+    bottom: 0;
+    right: 0;
+    transform: rotate(-20deg);
+}
+
+.shoe.show {
+    opacity: 1;
+}
+
+.card-wrap .info {
+    width: 50%;
+    background-color: #fff;
+    z-index: 1;
+    padding: 35px 40px;
+    box-shadow: 15px 0 35px rgba(0, 0, 0, .1),
+    0 -15px 35px rgba(0, 0, 0, .1),
+    0 15px 35px rgba(0, 0, 0, .1);
+}
+
+.card-wrap .shoeName {
+    padding: 0 0 10px 0;
+}
+
+.card-wrap .shoeName div {
+    display: flex;
+    align-items: center;
+
+}
+
+.card-wrap .shoeName div .large-title {
+    margin-right: 10px;
+    font-size: 2rem;
+    color: #333;
+    line-height: 1;
+}
+
+.card-wrap .shoeName div .new {
+    background-color: var(--primary);
+    text-transform: uppercase;
+    color: #fff;
+    padding: 3px 10px;
+    border-radius: 5px;
+    transition: .5s;
+}
+
+.card-wrap .shoeName .small-title {
+    font-weight: 500;
+    color: #444;
+    margin-top: 3px;
+    text-transform: capitalize;
+}
+
+.card-wrap .shoeName, .card-wrap .description, .card-wrap .color-container, .card-wrap .size-container {
+    border-bottom: 1px solid #dadada;
+}
+
+.card-wrap .description {
+    padding: 10px 0;
+}
+
+.card-wrap .title-middle {
+    color: #3a3a3a;
+    font-weight: 600;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.text {
+    color: #555;
+    font-size: 17px;
+}
+
+.card-wrap .color-container {
+    padding: 10px 0;
+}
+
+.card-wrap .color-container .colors {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.card-wrap .color-container .colors .color {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    margin: 0 10px;
+    border: 5px solid;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.card-wrap .color-container .colors .color[data-color="blue"] {
+    background-color: #2175f5;
+    border-color: #2175f5;
+}
+
+.card-wrap .color-container .colors .color[data-color="red"] {
+    background-color: #f84848;
+    border-color: #f84848;
+}
+
+.card-wrap .color-container .colors .color[data-color="green"] {
+    background-color: #29b864;
+    border-color: #29b864;
+}
+
+.card-wrap .color-container .colors .color[data-color="orange"] {
+    background-color: #ff5521;
+    border-color: #ff5521;
+}
+
+.card-wrap .color-container .colors .color[data-color="black"] {
+    background-color: #444;
+    border-color: #444;
+}
+
+.card-wrap .color-container .colors .color.active {
+    border-color: #fff;
+    box-shadow: 0 0 10px .5px rgba(0, 0, 0, 0.2);
+    transform: scale(1.1);
+}
+
+.card-wrap .size-container {
+    padding: 10px 0;
+    margin-bottom: 10px;
+}
+
+.card-wrap .size-container .sizes {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.card-wrap .size-container .sizes .size {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    background-color: #eee;
+    margin: 0 10px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.card-wrap .size-container .sizes .size.active {
+    background-color: var(--primary);
+    color: #fff;
+    transition: .5s;
+}
+
+.card-wrap .buy-price {
+    padding-top: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-wrap .price {
+    color: #333;
+    display: flex;
+    align-items: flex-start;
+}
+
+.card-wrap .price div {
+    font-size: 2.1rem;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.card-wrap .price i {
+    font-size: 1.4rem;
+    margin-right: 1px;
+}
+
+.card-wrap .btn-buy {
+    padding: .7rem 1rem;
+    background-color: var(--primary);
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 1.1rem;
+    transition: .5s;
+}
+
+.card-wrap .btn-buy:hover {
+    transform: scale(1.1);
+}
+
+.card-wrap .btn-buy i {
+    margin-right: 2px;
+}
+
+@media (max-width: 1070px) {
+    .card-wrap .shoe {
+        width: 135%;
+    }
+}
+
+@media (max-width: 1000px) {
+    .card-wrap {
+        flex-direction: column;
+        width: 100%;
+        box-shadow: 0 0 35px 1px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-wrap .info, .card-wrap .shoe-background {
+        width: 100%;
+        box-shadow: none;
+    }
+
+    .card-wrap .shoe {
+        width: 100%;
+        transform: rotate(-5deg) translateY(-50%);
+        top: 55%;
+        right: 2%;
+    }
+
+    .card-wrap .title {
+        top: 20%;
+        left: 5%;
+    }
+}
+
+@media (max-width: 600px) {
+    .card-wrap .share {
+        width: 40px;
+        height: 40px;
+    }
+
+    .card-wrap .share i {
+        font-size: 1rem;
+        line-height: 40px;
+    }
+
+    .card-wrap .logo {
+        width: 70px;
+    }
+}
+
+@media (max-width: 490px) {
+    .card-wrap .title {
+        font-size: 7rem;
+    }
+
+    .shoeName div .large-title {
+        font-size: 1.3rem;
+    }
+
+    .card-wrap .small-title {
+        font-size: 1rem;
+    }
+
+    .card-wrap .new {
+        padding: 2px 6px;
+        font-size: .9rem;
+    }
+
+    .card-wrap .title-middle {
+        font-size: .9rem;
+    }
+
+    .card-wrap .text {
+        font-size: .8rem;
+    }
+
+    .card-wrap .btn-buy {
+        padding: .5rem .8rem;
+        font-size: .8rem;
+    }
+
+    .card-wrap .price div {
+        font-size: 1.5rem;
+    }
+
+    .card-wrap .price i {
+        font-size: .9rem;
+    }
+
+    .card-wrap .size-container .sizes .size {
+        width: 30px;
+        height: 30px;
+        margin: 0 8px;
+        font-size: .9rem;
+        line-height: 30px;
+    }
+
+    .card-wrap .color-container .colors .color {
+        margin: 0 6px;
+        width: 20px;
+        height: 20px;
+        border-width: 4px;
+    }
+
+    .card-wrap .share {
+        width: 35px;
+        height: 35px;
+        top: 10px;
+        right: 10px;
+    }
+
+    .card-wrap .share i {
+        font-size: .8rem;
+        line-height: 35px;
+    }
+
+    .card-wrap .logo {
+        width: 60px;
+        top: 10px;
+        left: 10px;
+    }
+
+    .card-wrap .info {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .card-wrap .btn-buy i {
+        display: none;
+    }
+
+    .card-wrap .container-card {
+        padding: 20px;
+    }
+}
